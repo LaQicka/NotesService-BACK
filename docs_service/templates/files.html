@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files</title>
+</head>
+<body>
+<div id="files"></div>
+
+<script>
+    /**/
+            async getFiles()
+            {
+            let files1 = null;
+            await fetch("http://127.0.0.1:8000/api/documents/")
+                .then((response) =>
+            {
+                if(response.status == 200)
+                {
+                    return response.json();
+                }
+                else
+                {
+                    return null;
+                }
+            })
+            .then((data) =>
+            {
+                return data;
+             // files1 = this.JSONProcessingItemBlueprint(data);
+            })
+            return files1;
+        }
+   /**/
+
+        let files2 = getFiles();
+        alert(files2);
+
+/*
+        files2.forEach((value, key) =>
+        {
+                   files.ineerHTML = "<a href=\"" + "http://127.0.0.1:8000/api/documents/" + value.id + "/download\">" + value.id + "</a><br />";
+        })
+*/
+
+    // files.ineerHTML = "<h1>Hello!</h1>";
+
+    </script>
+</body>
+</html>
